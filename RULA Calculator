@@ -1,0 +1,49 @@
+% RULA Digital Calculator
+% This script calculates the RULA score for a given set of body postures
+% and provides visualizations and data storage.
+
+% Input data
+% For simplicity, we'll ask for angles or postures as inputs
+upper_arm_angle = input('Enter the upper arm angle: ');
+lower_arm_angle = input('Enter the lower arm angle: ');
+wrist_angle = input('Enter the wrist angle: ');
+wrist_twist = input('Enter the wrist twist (1 for yes, 0 for no): ');
+neck_angle = input('Enter the neck angle: ');
+trunk_angle = input('Enter the trunk angle: ');
+legs_position = input('Enter the legs position score: ');
+
+% Score Calculation
+% The following scores are simplified and should be replaced with actual RULA scoring criteria
+upper_arm_score = 2; % Example score, replace with actual calculation
+lower_arm_score = 2; % Example score, replace with actual calculation
+wrist_score = 1; % Example score, replace with actual calculation
+neck_score = 1; % Example score, replace with actual calculation
+trunk_score = 1; % Example score, replace with actual calculation
+legs_score = legs_position; % Example, usually legs_position is used directly
+
+% Total Score Calculation
+% For simplicity, sum the scores. Actual RULA uses a more complex rule set.
+total_score = upper_arm_score + lower_arm_score + wrist_score + neck_score + trunk_score + legs_score;
+
+% Output Results
+fprintf('The RULA score is: %d\n', total_score);
+
+% Data Storage
+% Store the scores and input data (in this case, we use a simple cell array)
+data = {upper_arm_angle, lower_arm_angle, wrist_angle, wrist_twist, neck_angle, trunk_angle, legs_position, total_score};
+
+% You can save data to a file for future reference
+save('rula_data.mat', 'data');
+
+% Data Visualization
+% Generating a pie chart (example data, should be replaced with actual data analysis)
+labels = {'Upper Arm', 'Lower Arm', 'Wrist', 'Neck', 'Trunk', 'Legs'};
+scores = [upper_arm_score, lower_arm_score, wrist_score, neck_score, trunk_score, legs_score];
+
+figure;
+pie(scores, labels);
+title('RULA Score Distribution');
+
+% Mean Score Calculation
+mean_score = mean(scores);
+fprintf('The mean score is: %.2f\n', mean_score);
